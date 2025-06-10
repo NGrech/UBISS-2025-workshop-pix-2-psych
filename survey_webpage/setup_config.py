@@ -31,6 +31,8 @@ def insert_questions_into_json_cfg(questions, user_id, json_path=JSON_CONFIG_PTH
 
     with open(new_cfg_pth, 'w', encoding='utf-8') as f:
         json.dump(study_cfg, f, indent=4, ensure_ascii=False)
+    
+    return new_cfg_pth
 
 
 if __name__ == "__main__":

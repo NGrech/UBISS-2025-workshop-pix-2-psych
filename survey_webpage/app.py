@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import uuid
+from setup_config import insert_questions_into_json_cfg
+
 app = Flask(__name__,template_folder='./')
 
 @app.route('/', methods=['GET', 'POST'])
@@ -11,7 +13,7 @@ def survey():
         user_id = uuid.uuid1()
         # For demonstration, print to console
         #print(responses, user_id)
-        insert_questions_into_json(responses, user_id)
+        user_cfg = insert_questions_into_json_cfg(responses, user_id)
 
         return redirect(url_for('thank_you'))
 
