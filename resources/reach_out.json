@@ -1,0 +1,10 @@
+{
+    "esm_submit": "Next",
+    "esm_title": "Did you feel you were able to connect or interact enough with your friends or family today?",
+    "esm_type": 2,
+    "esm_radios": [
+    "Yes",
+    "No"
+    ],
+    "id": 2
+}

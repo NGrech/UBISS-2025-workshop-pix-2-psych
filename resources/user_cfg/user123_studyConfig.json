@@ -1,0 +1,522 @@
+{
+    "_id": "a8c86b7f-dbfa-48f0-a4a7-610a930d0780",
+    "study_info": {
+        "study_title": "group 6 study Physical wellbeing ",
+        "study_description": "Study for workshop a UBISS 2025",
+        "researcher_first": "Nigel",
+        "researcher_last": "Sjolin Grech",
+        "researcher_contact": "nsjgr@dtu.dk"
+    },
+    "database": {
+        "database_host": "ubiss-2025-wsa.cvd47iwnttus.eu-central-1.rds.amazonaws.com",
+        "database_port": "3306",
+        "database_name": "group6",
+        "database_username": "g6_client",
+        "database_password": "g6_client",
+        "rootUsername": "-",
+        "rootPassword": "-",
+        "config_without_password": false,
+        "require_ssl": false
+    },
+    "createdAt": "2025-06-10T07:32:26.911Z",
+    "updatedAt": "2025-06-10T12:55:38.237Z",
+    "questions": [
+        {
+            "esm_submit": "Next",
+            "esm_title": "Did you feel you were able to connect or interact enough with your friends or family today?",
+            "esm_type": 2,
+            "esm_radios": [
+                "Yes",
+                "No"
+            ],
+            "id": 1
+        }
+    ],
+    "schedules": [
+        {
+            "title": "Evening",
+            "type": "interval",
+            "esm_keep": false,
+            "questions": [
+                1
+            ],
+            "hours": [
+                20
+            ],
+            "days": [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "sunday",
+                "saturday"
+            ]
+        },
+        {
+            "title": "Morning",
+            "type": "interval",
+            "esm_keep": false,
+            "questions": [],
+            "hours": [
+                10
+            ],
+            "days": [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday"
+            ]
+        },
+        {
+            "title": "Weekend Morning",
+            "type": "interval",
+            "esm_keep": false,
+            "questions": [
+                4
+            ],
+            "hours": [
+                12
+            ],
+            "days": [
+                "saturday",
+                "sunday"
+            ]
+        }
+    ],
+    "sensors": [
+        {
+            "setting": "webservice_wifi_only",
+            "value": true
+        },
+        {
+            "setting": "webservice_charging",
+            "value": false
+        },
+        {
+            "setting": "frequency_webservice",
+            "value": 60
+        },
+        {
+            "setting": "frequency_clean_old_data",
+            "value": "3"
+        },
+        {
+            "setting": "webservice_silent",
+            "value": true
+        },
+        {
+            "setting": "fallback_network",
+            "value": 120
+        },
+        {
+            "setting": "remind_to_charge",
+            "value": false
+        },
+        {
+            "setting": "foreground_priority",
+            "value": true
+        },
+        {
+            "setting": "debug_flag",
+            "value": true
+        },
+        {
+            "setting": "frequency_sync_config",
+            "value": 60
+        },
+        {
+            "setting": "enable_config_update",
+            "value": true
+        },
+        {
+            "setting": "status_applications",
+            "value": true
+        },
+        {
+            "setting": "status_notifications",
+            "value": true
+        },
+        {
+            "setting": "status_crashes",
+            "value": true
+        },
+        {
+            "setting": "frequency_applications",
+            "value": 30
+        },
+        {
+            "setting": "status_keyboard",
+            "value": true
+        },
+        {
+            "setting": "mask_notification",
+            "value": true
+        },
+        {
+            "setting": "mask_keyboard",
+            "value": true
+        },
+        {
+            "setting": "mask_touch_text",
+            "value": true
+        },
+        {
+            "setting": "status_screentext",
+            "value": true
+        },
+        {
+            "setting": "package_specification",
+            "value": "2"
+        },
+        {
+            "setting": "package_names",
+            "value": ""
+        },
+        {
+            "setting": "status_battery",
+            "value": true
+        },
+        {
+            "setting": "communication",
+            "value": true
+        },
+        {
+            "setting": "status_communication_events",
+            "value": true
+        },
+        {
+            "setting": "status_calls",
+            "value": true
+        },
+        {
+            "setting": "status_messages",
+            "value": true
+        },
+        {
+            "setting": "status_installations",
+            "value": true
+        },
+        {
+            "setting": "status_screen",
+            "value": true
+        },
+        {
+            "setting": "status_touch",
+            "value": false
+        },
+        {
+            "setting": "status_telephony",
+            "value": true
+        },
+        {
+            "setting": "status_timezone",
+            "value": true
+        },
+        {
+            "setting": "frequency_timezone",
+            "value": 20000
+        },
+        {
+            "setting": "status_accelerometer",
+            "value": true
+        },
+        {
+            "setting": "frequency_accelerometer",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_accelerometer",
+            "value": 0
+        },
+        {
+            "setting": "frequency_accelerometer_enforce",
+            "value": false
+        },
+        {
+            "setting": "status_barometer",
+            "value": true
+        },
+        {
+            "setting": "frequency_barometer",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_barometer",
+            "value": 0
+        },
+        {
+            "setting": "frequency_barometer_enforce",
+            "value": false
+        },
+        {
+            "setting": "status_bluetooth",
+            "value": true
+        },
+        {
+            "setting": "frequency_bluetooth",
+            "value": 60
+        },
+        {
+            "setting": "status_gravity",
+            "value": true
+        },
+        {
+            "setting": "frequency_gravity",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_gravity",
+            "value": 0
+        },
+        {
+            "setting": "frequency_gravity_enforce",
+            "value": false
+        },
+        {
+            "setting": "status_gyroscope",
+            "value": true
+        },
+        {
+            "setting": "frequency_gyroscope",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_gyroscope",
+            "value": 0
+        },
+        {
+            "setting": "frequency_gyroscope_enforce",
+            "value": false
+        },
+        {
+            "setting": "status_light",
+            "value": true
+        },
+        {
+            "setting": "frequency_light",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_light",
+            "value": 0
+        },
+        {
+            "setting": "frequency_light_enforce",
+            "value": false
+        },
+        {
+            "setting": "status_linear_accelerometer",
+            "value": true
+        },
+        {
+            "setting": "frequency_linear_accelerometer",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_linear_accelerometer",
+            "value": 0
+        },
+        {
+            "setting": "frequency_linear_accelerometer_enforce",
+            "value": false
+        },
+        {
+            "setting": "location",
+            "value": true
+        },
+        {
+            "setting": "status_location_gps",
+            "value": true
+        },
+        {
+            "setting": "status_location_network",
+            "value": true
+        },
+        {
+            "setting": "frequency_gps",
+            "value": 180
+        },
+        {
+            "setting": "frequency_network",
+            "value": 300
+        },
+        {
+            "setting": "min_location_gps_accuracy",
+            "value": 150
+        },
+        {
+            "setting": "min_location_network_accuracy",
+            "value": 1500
+        },
+        {
+            "setting": "location_expiration_time",
+            "value": 300
+        },
+        {
+            "setting": "status_location_passive",
+            "value": false
+        },
+        {
+            "setting": "location_save_all",
+            "value": false
+        },
+        {
+            "setting": "status_magnetometer",
+            "value": true
+        },
+        {
+            "setting": "frequency_magnetometer",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_magnetometer",
+            "value": 0
+        },
+        {
+            "setting": "frequency_magnetometer_enforce",
+            "value": false
+        },
+        {
+            "setting": "network",
+            "value": true
+        },
+        {
+            "setting": "status_network_events",
+            "value": true
+        },
+        {
+            "setting": "status_network_traffic",
+            "value": false
+        },
+        {
+            "setting": "status_processor",
+            "value": true
+        },
+        {
+            "setting": "status_proximity",
+            "value": true
+        },
+        {
+            "setting": "frequency_proximity",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_proximity",
+            "value": 0
+        },
+        {
+            "setting": "frequency_proximity_enforce",
+            "value": false
+        },
+        {
+            "setting": "status_rotation",
+            "value": true
+        },
+        {
+            "setting": "frequency_rotation",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_rotation",
+            "value": 0
+        },
+        {
+            "setting": "frequency_rotation_enforce",
+            "value": false
+        },
+        {
+            "setting": "status_temperature",
+            "value": true
+        },
+        {
+            "setting": "frequency_temperature",
+            "value": 20000
+        },
+        {
+            "setting": "threshold_temperature",
+            "value": 0
+        },
+        {
+            "setting": "frequency_temperature_enforce",
+            "value": false
+        },
+        {
+            "setting": "status_wifi",
+            "value": true
+        },
+        {
+            "setting": "frequency_wifi",
+            "value": 60
+        },
+        {
+            "setting": "status_screenshot",
+            "value": false
+        },
+        {
+            "setting": "capture_time_interval",
+            "value": 5
+        },
+        {
+            "setting": "compress_rate",
+            "value": 20
+        },
+        {
+            "setting": "status_screenshot_local_storage",
+            "value": false
+        },
+        {
+            "setting": "screenshot_package_names",
+            "value": ""
+        },
+        {
+            "setting": "screenshot_package_specification",
+            "value": "2"
+        },
+        {
+            "setting": "status_notes",
+            "value": true
+        },
+        {
+            "setting": "status_plugin_ambient_noise",
+            "value": false
+        },
+        {
+            "setting": "frequency_plugin_ambient_noise",
+            "value": 5
+        },
+        {
+            "setting": "plugin_ambient_noise_sample_size",
+            "value": 30
+        },
+        {
+            "setting": "plugin_ambient_noise_silence_threshold",
+            "value": 50
+        },
+        {
+            "setting": "status_plugin_openweather",
+            "value": false
+        },
+        {
+            "setting": "plugin_openweather_frequency",
+            "value": 30
+        },
+        {
+            "setting": "plugin_openweather_api_key",
+            "value": ""
+        },
+        {
+            "setting": "plugin_openweather_measurement_units",
+            "value": "metric"
+        },
+        {
+            "setting": "status_esm",
+            "value": true
+        },
+        {
+            "setting": "status_webservice",
+            "value": true
+        }
+    ]
+}

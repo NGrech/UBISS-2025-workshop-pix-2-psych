@@ -1,0 +1,11 @@
+{
+    "esm_submit": "Next",
+    "esm_title": "Do you feel you were physically active enough today?",
+    "instructions": "",
+    "esm_type": 2,
+    "esm_radios": [
+    "Yes ",
+    "No"
+    ],
+    "id": 1
+}
