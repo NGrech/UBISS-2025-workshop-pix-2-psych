@@ -11,7 +11,6 @@ def survey():
         user_id = uuid.uuid1()
         # For demonstration, print to console
         #print(responses, user_id)
-        # Save to CSV
         insert_questions_into_json(responses, user_id)
 
         return redirect(url_for('thank_you'))
