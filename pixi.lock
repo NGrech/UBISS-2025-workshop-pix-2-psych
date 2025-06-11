@@ -75,6 +75,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/geopy-2.4.1-pyhd8ed1ab_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/googlemaps-4.10.0-pyhd8ed1ab_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/graphite2-1.3.13-h63175ca_1003.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/greenlet-3.2.3-py311hda3d55a_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/h2-4.2.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/h5py-3.14.0-nompi_py311h97e6cc2_100.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/harfbuzz-11.2.1-h8796e6f_0.conda
@@ -159,6 +160,13 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/mpmath-1.3.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/multidict-6.4.4-py311h5082efb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/munkres-1.1.4-pyh9f0ad1d_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mysql-9.3.0-h9c18f36_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mysql-client-9.3.0-h809f9c2_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mysql-common-9.3.0-h2224204_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mysql-connector-python-9.3.0-py311hda3d55a_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mysql-devel-9.3.0-h2224204_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mysql-libs-9.3.0-h809f9c2_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mysql-server-9.3.0-h604664a_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/nest-asyncio-1.6.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/numpy-2.3.0-py311hc907d76_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/openjpeg-2.5.3-h4d64b90_0.conda
@@ -184,11 +192,13 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyh29332c3_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/pyerfa-2.0.1.5-py311h0a17f05_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pygments-2.19.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pymysql-1.1.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.2.3-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/pyside6-6.9.1-py311h5d1a980_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pysocks-1.7.1-pyh09c184e_7.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python-3.11.13-h3f84c4b_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python-dateutil-2.9.0.post0-pyhff2d567_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/python-dotenv-1.1.0-pyh29332c3_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python-tzdata-2025.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.11-7_cp311.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pytz-2025.2-pyhd8ed1ab_0.conda
@@ -207,6 +217,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/snappy-1.2.1-h500f7fa_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sortedcontainers-2.4.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/soupsieve-2.7-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/sqlalchemy-2.0.41-py311he736701_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/stack_data-0.6.3-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/tbb-2021.13.0-h62715c5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/threadpoolctl-3.6.0-pyhecae5ae_0.conda
@@ -1121,6 +1132,19 @@ packages:
   license_family: LGPL
   size: 95406
   timestamp: 1711634622644
+- conda: https://conda.anaconda.org/conda-forge/win-64/greenlet-3.2.3-py311hda3d55a_0.conda
+  sha256: ee485694a61f45822deca736b6b16eed55dc2fdc0e3fc5ede7c52aed98756795
+  md5: 00d29571d33ae7e1c74486a3e53a953a
+  depends:
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  license: MIT
+  license_family: MIT
+  size: 224457
+  timestamp: 1749160633862
 - conda: https://conda.anaconda.org/conda-forge/noarch/h2-4.2.0-pyhd8ed1ab_0.conda
   sha256: 0aa1cdc67a9fe75ea95b5644b734a756200d6ec9d0dff66530aec3d1c1e9df75
   md5: b4754fb1bdcb70c8fd54f918301582c6
@@ -2218,6 +2242,111 @@ packages:
   license_family: Apache
   size: 12452
   timestamp: 1600387789153
+- conda: https://conda.anaconda.org/conda-forge/win-64/mysql-9.3.0-h9c18f36_0.conda
+  sha256: f2c204e554e93286dff99d31966f3aeff747d06529537d096185dd3e3490f5b9
+  md5: 723fc054f92a9ca2948a0bc8bfcce82d
+  depends:
+  - mysql-client 9.3.0 h809f9c2_0
+  - mysql-common 9.3.0 h2224204_0
+  - mysql-devel 9.3.0 h2224204_0
+  - mysql-libs 9.3.0 h809f9c2_0
+  - mysql-server 9.3.0 h604664a_0
+  - openssl >=3.5.0,<4.0a0
+  license: GPL-2.0-or-later
+  license_family: GPL
+  size: 67882
+  timestamp: 1745260811447
+- conda: https://conda.anaconda.org/conda-forge/win-64/mysql-client-9.3.0-h809f9c2_0.conda
+  sha256: 11b982a4759c6793f42b8946b2a5fced9fa9ae23dde4017fec23e31e12572f92
+  md5: 3057554c6cdcbba8b70f6213e3f3b35d
+  depends:
+  - libzlib >=1.3.1,<2.0a0
+  - mysql-common 9.3.0 h2224204_0
+  - openssl >=3.5.0,<4.0a0
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  - zstd >=1.5.7,<1.6.0a0
+  license: GPL-2.0-or-later
+  license_family: GPL
+  size: 4118421
+  timestamp: 1745260600377
+- conda: https://conda.anaconda.org/conda-forge/win-64/mysql-common-9.3.0-h2224204_0.conda
+  sha256: c7fc58395512ef44b9291416c95a34b1613efb3664ae873341d37c61f4d1c04a
+  md5: 57dabba9d462a872d779751d274a88f2
+  depends:
+  - openssl >=3.5.0,<4.0a0
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  license: GPL-2.0-or-later
+  license_family: GPL
+  size: 656151
+  timestamp: 1745259890576
+- conda: https://conda.anaconda.org/conda-forge/win-64/mysql-connector-python-9.3.0-py311hda3d55a_0.conda
+  sha256: e048642f23cf762e95436d86f6a7aa57f198454ee9de4fd315e877df3f8dada5
+  md5: b05d10d439cb9d59f88cc821cc615041
+  depends:
+  - mysql-libs >=9.3.0,<9.4.0a0
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  constrains:
+  - mysql-client 9.3.*
+  license: GPL-2.0-or-later WITH Universal-FOSS-exception-1.0
+  license_family: GPL
+  size: 545520
+  timestamp: 1745444209672
+- conda: https://conda.anaconda.org/conda-forge/win-64/mysql-devel-9.3.0-h2224204_0.conda
+  sha256: ddeab0ced0bff21e90f85e7587eef64fd26dd0f7e827830eb5ab52654dcaa459
+  md5: ae4d78eb3aa2be39922494a0feca2060
+  depends:
+  - mysql-libs 9.3.0 h809f9c2_0
+  - openssl >=3.5.0,<4.0a0
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  license: GPL-2.0-or-later
+  license_family: GPL
+  size: 2457620
+  timestamp: 1745260759923
+- conda: https://conda.anaconda.org/conda-forge/win-64/mysql-libs-9.3.0-h809f9c2_0.conda
+  sha256: 572af526b5c72ace37fa68ced89604d68aac94656e731b510d7e022b1096f4ab
+  md5: da7db690aca7b2e0db2bd747bdf21716
+  depends:
+  - libzlib >=1.3.1,<2.0a0
+  - mysql-common 9.3.0 h2224204_0
+  - openssl >=3.5.0,<4.0a0
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  - zstd >=1.5.7,<1.6.0a0
+  license: GPL-2.0-or-later
+  license_family: GPL
+  size: 1270979
+  timestamp: 1745260647376
+- conda: https://conda.anaconda.org/conda-forge/win-64/mysql-server-9.3.0-h604664a_0.conda
+  sha256: c7d6375005638dc3e1d0a8b860e7919127abbd2bd019805a92b9ca96dd088249
+  md5: adc33decadbbc975af11781e9e0c0260
+  depends:
+  - icu >=75.1,<76.0a0
+  - libabseil * cxx17*
+  - libabseil >=20250127.1,<20250128.0a0
+  - libprotobuf >=5.29.3,<5.29.4.0a0
+  - libzlib >=1.3.1,<2.0a0
+  - lz4-c >=1.10.0,<1.11.0a0
+  - mysql-common 9.3.0 h2224204_0
+  - openssl >=3.5.0,<4.0a0
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  - zstd >=1.5.7,<1.6.0a0
+  license: GPL-2.0-or-later
+  license_family: GPL
+  size: 14468892
+  timestamp: 1745260695053
 - conda: https://conda.anaconda.org/conda-forge/noarch/nest-asyncio-1.6.0-pyhd8ed1ab_1.conda
   sha256: bb7b21d7fd0445ddc0631f64e66d91a179de4ba920b8381f29b9d006a42788c0
   md5: 598fd7d4d0de2455fb74f56063969a97
@@ -2567,6 +2696,15 @@ packages:
   license_family: BSD
   size: 888600
   timestamp: 1736243563082
+- conda: https://conda.anaconda.org/conda-forge/noarch/pymysql-1.1.1-pyhd8ed1ab_1.conda
+  sha256: c06d7723a1309fd93b108f9eaee7a4f11bb21a4fe71937830b145a5f9d2cacf1
+  md5: 315255aed31d5ac5ae5af9aff21a7bf6
+  depends:
+  - python >=3.9
+  license: MIT
+  license_family: MIT
+  size: 44283
+  timestamp: 1734209963958
 - conda: https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.2.3-pyhd8ed1ab_1.conda
   sha256: b92afb79b52fcf395fd220b29e0dd3297610f2059afac45298d44e00fcbf23b6
   md5: 513d3c262ee49b54a8fec85c5bc99764
@@ -2636,6 +2774,16 @@ packages:
   license_family: APACHE
   size: 222505
   timestamp: 1733215763718
+- conda: https://conda.anaconda.org/conda-forge/noarch/python-dotenv-1.1.0-pyh29332c3_1.conda
+  sha256: 7d927317003544049c97e7108e8ca5f2be5ff0ea954f5c84c8bbeb243b663fc8
+  md5: 27d816c6981a8d50090537b761de80f4
+  depends:
+  - python >=3.9
+  - python
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 25557
+  timestamp: 1742948348635
 - conda: https://conda.anaconda.org/conda-forge/noarch/python-tzdata-2025.2-pyhd8ed1ab_0.conda
   sha256: e8392a8044d56ad017c08fec2b0eb10ae3d1235ac967d0aab8bd7b41c4a5eaf0
   md5: 88476ae6ebd24f39261e0854ac244f33
@@ -2864,6 +3012,21 @@ packages:
   license_family: MIT
   size: 37773
   timestamp: 1746563720271
+- conda: https://conda.anaconda.org/conda-forge/win-64/sqlalchemy-2.0.41-py311he736701_0.conda
+  sha256: c08a9cc33a8f18d6ae35830e9f8cde51c0906b02da150db753b741bfc3bded85
+  md5: b1234642d990f4af8cf2052962f556d8
+  depends:
+  - greenlet !=0.4.17
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  - typing-extensions >=4.6.0
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  license: MIT
+  license_family: MIT
+  size: 3572474
+  timestamp: 1747299397405
 - conda: https://conda.anaconda.org/conda-forge/noarch/stack_data-0.6.3-pyhd8ed1ab_1.conda
   sha256: 570da295d421661af487f1595045760526964f41471021056e993e73089e9c41
   md5: b1b505328da7a6b246787df4b5a49fbc
