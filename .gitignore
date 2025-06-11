@@ -4,3 +4,4 @@
 *.egg-info
 .env
 csv_exports/*.csv
+resources/config.yaml

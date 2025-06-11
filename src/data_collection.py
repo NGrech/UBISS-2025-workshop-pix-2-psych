@@ -24,8 +24,8 @@ def export_tables_to_csv(host, user, password, database, tables, output_dir, sta
                 query += f" WHERE `timestamp` < {int(end_ts)}"
 
             # Fetch data in chunks to avoid memory issues with large tables
-            chunk_size = 100000
-            csv_path = os.path.join(output_dir, f"{table}.csv")
+            chunk_size = 1000000
+            csv_path = os.path.join(output_dir, f"phone_{table}_raw.csv")
             first_chunk = True
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore", category=UserWarning)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     host = config['MYSQL_HOST']
     database = config['MYSQL_DATABASE']
 
-    tables = ["accelerometer"] 
+    tables = ['accelerometer', 'applications_foreground', 'applications_notifications', 'aware_device', 'aware_log', 'aware_studies', 'barometer', 'battery', 'bluetooth', 'esms', 'gravity', 'gsm', 'gyroscope', 'installations', 'keyboard', 'light', 'linear_accelerometer', 'locations', 'magnetometer', 'network', 'notes', 'proximity', 'rotation', 'screen', 'screentext', 'sensor_accelerometer', 'sensor_barometer', 'sensor_bluetooth', 'sensor_gravity', 'sensor_gyroscope', 'sensor_light', 'sensor_linear_accelerometer', 'sensor_magnetometer', 'sensor_proximity', 'sensor_rotation', 'sensor_wifi', 'telephony', 'timezone', 'touch', 'wifi'] 
     output_dir = "./csv_exports" 
 
     os.makedirs(output_dir, exist_ok=True)
