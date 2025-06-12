@@ -38,20 +38,20 @@ def parse_esm_csv(csv_path):
     df['esm_json_dict'] = df['esm_json'].apply(lambda x: json.loads(x) if pd.notnull(x) else {})
 
     # Group by date
-    grouped = df.groupby('device_id')
+    grouped = df.groupby(['device_id', 'date'])
 
     parsed_data = {}
 
-    for deviceId, group in grouped:
+    for (deviceId, date), group in grouped:
         day_record = {
-            "progress_yesterday": None,            # Q1 → Likert
-            "improvement_plan": "",                # Q2 → Free text
-            "goal_main_focus": [],                 # Q3 → Checkboxes
-            "goal_text": "",                       # Q4 → Free text
-            "checkins": [],                        # Q5-Q7 → list of dicts
-            "reflection_success": None,            # Q8 → Likert
-            "reflection_happiness": None,          # Q9 → Likert
-            "reflection_comment": ""               # Q10 → Free text
+            "progress_yesterday": None,
+            "improvement_plan": "",
+            "goal_main_focus": [],
+            "goal_text": "",
+            "checkins": [],
+            "reflection_success": None,
+            "reflection_happiness": None,
+            "reflection_comment": ""
         }
 
         for _, row in group.iterrows():
@@ -59,31 +59,32 @@ def parse_esm_csv(csv_path):
             trigger = row['esm_json_dict'].get('esm_trigger', None)
             time = row['time']
 
-            # Extract all possible answer fields consistently
-            answer_text = row.get('esm_user_answer_text', None)
-            answer_label = row.get('esm_user_answer', None) or row.get('esm_user_answer_label', None)
-            answer_number = row.get('esm_user_answer_number', None)
+            print(row)
+            # breakpoint()
 
+            # Extract answers
+            answer = row.get('esm_user_answer', None)
+        
             # Process according to qid
             if qid == 1:
                 # Q1 → Progress yesterday → Likert number
-                day_record['progress_yesterday'] = answer_number
+                day_record['progress_yesterday'] = answer
             elif qid == 2:
                 # Q2 → What to do differently → Free text
-                day_record['improvement_plan'] = answer_text
+                day_record['improvement_plan'] = answer
             elif qid == 3:
                 # Q3 → "What is your main focus for today?" → checkboxes
-                if pd.notna(answer_text):
-                    if answer_text.startswith('['):
+                if pd.notna(answer):
+                    if answer.startswith('['):
                         try:
-                            day_record['goal_main_focus'] = json.loads(answer_text)
+                            day_record['goal_main_focus'] = json.loads(answer)
                         except:
                             day_record['goal_main_focus'] = []
                     else:
-                        day_record['goal_main_focus'] = [item.strip() for item in answer_text.split(';') if item.strip()]
+                        day_record['goal_main_focus'] = [item.strip() for item in answer.split(';') if item.strip()]
             elif qid == 4:
                 # Q4 → "One specific goal" → free text
-                day_record['goal_text'] = answer_text
+                day_record['goal_text'] = answer
             elif qid in [5, 6, 7]:
                 # Hourly check-in (Q5, Q6, Q7)
                 checkin_entry = None
@@ -102,29 +103,29 @@ def parse_esm_csv(csv_path):
 
                 if qid == 5:
                     # Q5 → Radio Yes/No → use label
-                    checkin_entry['on_track'] = answer_label
+                    checkin_entry['on_track'] = answer
                 elif qid == 6:
                     # Q6 → Likert satisfaction → use number
-                    checkin_entry['satisfaction'] = answer_number
+                    checkin_entry['satisfaction'] = answer
                 elif qid == 7:
                     # Q7 → Free text comment
-                    checkin_entry['comment'] = answer_text
+                    checkin_entry['comment'] = answer
             elif qid == 8:
                 # Q8 → Reflection success (Likert)
-                day_record['reflection_success'] = answer_number
+                day_record['reflection_success'] = answer
             elif qid == 9:
                 # Q9 → Reflection happiness (Likert)
-                day_record['reflection_happiness'] = answer_number
+                day_record['reflection_happiness'] = answer
             elif qid == 10:
                 # Q10 → Reflection free text
-                day_record['reflection_comment'] = answer_text
+                day_record['reflection_comment'] = answer
 
-            parsed_data[(str(deviceId), row['timestamp'])] = day_record
-        return parsed_data
+        parsed_data[(str(deviceId), str(date))] = day_record
+    return parsed_data
 
 
 if __name__ == "__main__":
-    csv_path = "./phone_esms_raw.csv"
+    csv_path = "./generated_phone_esms_raw.csv"
     parsed_data = parse_esm_csv(csv_path)
     for date, record in parsed_data.items():
         print(f"Date: {date}")
