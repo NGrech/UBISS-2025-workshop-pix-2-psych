@@ -23,7 +23,7 @@ def main_executor(acc_file_path, gravity_file_path, plot=False):
     Calls other functions, basically executes the flows.
     :param acc_file_path: csv path file to linear acceleration data
     :param gravity_file_path:  csv path file to gravity
-    :param plot: wether to plot or not at the end of the step detection process
+    :param plot: whether to plot or not at the end of the step detection process
     """
     linear_acc_df = pd.read_csv(acc_file_path)
     gravity_df = pd.read_csv(gravity_file_path)
@@ -54,11 +54,13 @@ def acc_gravity_to_steps(linar_acceleration, gravity):
     vertical_movement = np.einsum('ij,ij->i', filtered_acceleration, gravity)
     print(footpath_detector(vertical_movement))
 
+    #return()
+
 def normalize_v(vector):
     """
     Util function to normalize a vector
-    :param vector:
-    :return:
+    :param vector: vector to normalize
+    :return: normalized vector
     """
     v_norm = np.linalg.norm(vector)
     if v_norm == 0:
