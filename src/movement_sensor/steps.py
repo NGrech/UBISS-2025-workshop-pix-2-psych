@@ -16,7 +16,10 @@ Flow:
     
 Filtering and step detection parameters can be tuned
 '''
-# assume some csv file
+
+#TODO: test ordered data!
+
+# assume some csv file of a certain user & a certain time period !
 
 def main_executor(acc_file_path, gravity_file_path, plot=False):
     """
@@ -27,6 +30,10 @@ def main_executor(acc_file_path, gravity_file_path, plot=False):
     """
     linear_acc_df = pd.read_csv(acc_file_path)
     gravity_df = pd.read_csv(gravity_file_path)
+    # Sorting --- ---
+    linear_acc_df.sort_values(by=['timestamp'], inplace = True)
+    gravity_df.sort_values(by=['timestamp'], inplace=True)
+    # --- --- --- ---
     linear_acc_df.rename(columns={"double_values_0": "x", "double_values_1": "y", "double_values_2": "z"}, inplace=True)
     gravity_df.rename(columns={"double_values_0": "x", "double_values_1": "y", "double_values_2": "z"}, inplace=True)
     # Sync here ---
@@ -146,6 +153,7 @@ def sync_df(df1, df2):
     index1 = 0
     index2 = 0
     pairs = []
+    df2_len = len(df2)
     for index, row in df1.iterrows():
         cur_pair = (index1, -1)
         cur_timestamp = row["timestamp"]
@@ -155,7 +163,7 @@ def sync_df(df1, df2):
             cur_pair = (index1, index2)
             index2 += 1
         else:
-            for i in range(index2, min(index2 + 1001, len(df2)-1)):
+            for i in range(index2, min(index2 + 1001, df2_len-1)):
                 row2 = df2.iloc[i]
                 timestamp_difference = cur_timestamp - row2["timestamp"]
                 if timestamp_difference <= 10 and timestamp_difference >= -10:
