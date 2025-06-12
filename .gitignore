@@ -9,3 +9,4 @@ narrator_logs/
 csv_exports/
 .vscode/
 src/__pycache__/data_collection.cpython-311.pyc
+phone_esms_raw.csv

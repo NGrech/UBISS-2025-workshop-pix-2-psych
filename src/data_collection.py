@@ -53,8 +53,8 @@ if __name__ == "__main__":
     host = config['MYSQL_HOST']
     database = config['MYSQL_DATABASE']
 
-    tables = ['accelerometer', 'applications_foreground', 'applications_notifications', 'aware_log', 'aware_studies', 'barometer', 'battery', 'bluetooth', 'esms', 'gravity', 'gsm', 'gyroscope', 'installations', 'keyboard', 'light', 'linear_accelerometer', 'locations', 'magnetometer', 'network', 'notes', 'proximity', 'rotation', 'screen', 'screentext', 'sensor_accelerometer', 'sensor_barometer', 'sensor_bluetooth', 'sensor_gravity', 'sensor_gyroscope', 'sensor_light', 'sensor_linear_accelerometer', 'sensor_magnetometer', 'sensor_proximity', 'sensor_rotation', 'sensor_wifi', 'telephony', 'timezone', 'touch', 'wifi'] 
+    tables = ['esms'] 
     output_dir = "./csv_exports" 
 
     os.makedirs(output_dir, exist_ok=True)
-    export_tables_to_csv(host, user, password, database, tables, output_dir,   '1749535200000', '1749621600000')
+    export_tables_to_csv(host, user, password, database, tables, output_dir,   '1749715200000', '1749801600000')
