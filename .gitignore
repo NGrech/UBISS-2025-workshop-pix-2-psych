@@ -4,4 +4,8 @@
 *.egg-info
 .env
 csv_exports/*.csv
-resources/config.yaml
+config.yaml
+narrator_logs/
+csv_exports/
+.vscode/
+src/__pycache__/data_collection.cpython-311.pyc
