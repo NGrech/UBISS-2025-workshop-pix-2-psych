@@ -1,0 +1,79 @@
+=== Multi-Day Test Case: User1_Day1_Good ===
+
+=== User Message ===
+
+### User Goal:
+        Reduce smartphone usage to 3 hour per day.
+
+        ### User Reflections:
+        Success rating: 4/5
+        Comment: I did well but could improve in the afternoon.
+
+        ### App Usage (by hour):
+        10:00-11:00: Instagram 15min
+11:00-12:00: Facebook 25min
+14:00-15:00: Instagram 45min
+
+        ### Step Counts (by hour):
+        10:00-11:00: 1200 steps
+11:00-12:00: 1500 steps
+14:00-15:00: 1800 steps
+15:00-16:00: 2000 steps
+
+        ### Narrator Summary:
+        Screen usage sessions by hour:
+- 08:00-09:00: 1 session, total screen time ~3 min
+  - Session 08:15:02 to 08:18:21 (199 sec)
+- 09:00-10:00: 1 session, total screen time ~2 min
+  - Session 09:45:30 to 09:47:12 (102 sec)
+- 10:00-11:00: 1 session, total screen time ~4 min
+  - Session 10:30:15 to 10:34:42 (267 sec)
+- 11:00-12:00: 1 session, total screen time ~2 min
+  - Session 11:48:22 to 11:50:31 (129 sec)
+- 12:00-13:00: 0 sessions
+- 13:00-14:00: 1 session, total screen time ~3 min
+  - Session 13:25:31 to 13:28:41 (190 sec)
+- 14:00-15:00: 1 session, total screen time ~2 min
+  - Session 14:50:02 to 14:52:30 (148 sec)
+- 15:00-16:00: 0 sessions
+- 16:00-17:00: 1 session, total screen time ~2 min
+  - Session 16:10:03 to 16:12:44 (161 sec)
+- 17:00-18:00: 1 session, total screen time ~3 min
+  - Session 17:15:20 to 17:18:31 (191 sec)
+- 18:00-19:00: 0 sessions
+- 19:00-20:00: 1 session, total screen time ~2 min
+  - Session 19:33:09 to 19:36:12 (183 sec)
+
+App usage by hour (app opens):
+- 08:00-09:00: WhatsApp: 1x
+- 09:00-10:00: Email: 1x
+- 10:00-11:00: WhatsApp: 1x, Calendar: 1x
+- 11:00-12:00: Email: 1x
+- 13:00-14:00: Calendar: 1x
+- 14:00-15:00: WhatsApp: 1x
+- 16:00-17:00: YouTube: 1x (short)
+- 17:00-18:00: Messages: 1x
+- 19:00-20:00: Netflix: 1x
+
+Screen ON gaps by hour:
+- 08:00-09:00: min gap 543s, max gap 543s, avg gap 543.0s
+- 09:00-10:00: min gap 2732s, max gap 2732s, avg gap 2732.0s
+- 10:00-11:00: min gap 1643s, max gap 1643s, avg gap 1643.0s
+- 11:00-12:00: min gap 2134s, max gap 2134s, avg gap 2134.0s
+- 12:00-13:00: no sessions
+- 13:00-14:00: min gap 4532s, max gap 4532s, avg gap 4532.0s
+- 14:00-15:00: min gap 1862s, max gap 1862s, avg gap 1862.0s
+- 15:00-16:00: no sessions
+- 16:00-17:00: min gap 2267s, max gap 2267s, avg gap 2267.0s
+- 17:00-18:00: min gap 1345s, max gap 1345s, avg gap 1345.0s
+- 18:00-19:00: no sessions
+- 19:00-20:00: min gap 2431s, max gap 2431s, avg gap 2431.0s
+
+=== GPT Response ===
+
+### 1. Agent Evaluation  
+User was successful.  
+This is a case of *User positive, data positive*.
+
+### 2. Feedback Message  
+Great job on keeping your smartphone usage within a healthy limit! Your screen time is well under your goal of 3 hours per day, and it's clear from the data that you've managed your app usage effectively. The steps you took to reduce usage, especially in the afternoon, are paying off. Keep up the fantastic work, and continue to be mindful of any areas where you feel improvement is needed. Your awareness and reflection on your habits are key to your ongoing success.

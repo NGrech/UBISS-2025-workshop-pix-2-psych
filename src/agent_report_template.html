@@ -1,0 +1,134 @@
+<!-- agent_report_template_oulu.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Daily Feedback Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            margin: 20px;
+        }
+        .container {
+            max-width: 900px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            margin: auto;
+            position: relative;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+        }
+        h1, h2, h3 {
+            color: #004785; /* Oulu blue */
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .user-generated {
+            background-color: #e3f6e3; /* pastel green */
+        }
+        .procedural-generated {
+            background-color: #e3f0f9; /* pastel blue */
+        }
+        .llm-generated {
+            background-color: #f0e3f9; /* pastel purple */
+        }
+        .section p {
+            margin: 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div>
+            <h1>User Daily Feedback Report</h1>
+            <p><strong>Date:</strong> {{date}}</p>
+            <p><strong>Group:</strong> {{group}}</p>
+            </div>
+            <img src="src/th.webp" alt="University of Oulu Logo" class="logo" style="position: static; margin-left: 20px; width: 150px;" />
+        </div>
+
+        <div class="section user-generated">
+            <h2>Goal of the Day</h2>
+            <p>{{goal_text}}</p>
+        </div>
+
+        <div class="section user-generated">
+            <h2>User Reflection</h2>
+            <p><strong>Rating:</strong> {{reflection_success}}/5</p>
+            <p><strong>Comment:</strong> {{reflection_comment}}</p>
+        </div>
+
+        <div class="section llm-generated">
+            <h2>Agent Evaluation</h2>
+            <p><strong>Evaluation:</strong> {{agent_evaluation}}</p>
+            <p><strong>Case Identified:</strong> {{case_identified}}</p>
+        </div>
+
+        <div class="section llm-generated">
+            <h2>Feedback Message</h2>
+            <p>{{feedback_message}}</p>
+        </div>
+
+        <div class="section llm-generated">
+            <h2>Suggested Strategies</h2>
+            <p>{{suggested_strategies}}</p>
+        </div>
+
+        <div class="section llm-generated">
+            <h2>Goal Quality Feedback</h2>
+            <p>{{goal_quality_feedback}}</p>
+        </div>
+
+        <div class="section procedural-generated">
+            <h2>Step Count Summary</h2>
+            <pre>{{step_counts_summary}}</pre>
+        </div>
+
+        <div class="section procedural-generated">
+            <h2>App Usage Summary</h2>
+            <pre>{{app_usage_summary}}</pre>
+        </div>
+
+        <div class="section procedural-generated">
+            <h2>Narrator Insights</h2>
+            <pre>{{narrator_summary}}</pre>
+        </div>
+
+        <div class="footer">
+            © UBISS Workshop 2025 | University of Oulu
+        </div>
+    </div>
+</body>
+</html>
