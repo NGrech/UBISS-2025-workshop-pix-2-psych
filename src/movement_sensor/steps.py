@@ -17,7 +17,7 @@ Flow:
 Filtering and step detection parameters can be tuned
 '''
 
-#TODO: test ordered data!
+#TODO: test ordered data! divide by day !
 
 # assume some csv file of a certain user & a certain time period !
 
