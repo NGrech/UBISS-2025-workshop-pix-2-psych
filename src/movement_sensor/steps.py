@@ -12,21 +12,22 @@ Flow:
     * Sync them by aligning to the closest timestamp in a +- 10microseconds range
     * Extract vertical movement using dot product
     * Compute steps according to this paper -> "FootPath: Accurate Map-based Indoor Navigation  Using Smartphones"
-    * (Optionally) Plots acceleration data vs. detected steps
     
 Filtering and step detection parameters can be tuned
 '''
-# assume some csv file
 
-def main_executor(acc_file_path, gravity_file_path, plot=False):
+def step_executor(linear_acc_df, gravity_df, plot=False):
     """
-    Calls other functions, basically executes the flows.
-    :param acc_file_path: csv path file to linear acceleration data
-    :param gravity_file_path:  csv path file to gravity
+    Calls other functions, basically executes the flow. Takes in input dataframe of linear acceleration & gravity,
+    divided by day and user. Works otherwise, but output becomes unreliable
+    :param linear_acc_df: csv file of linear acceleration data
+    :param gravity_df:  csv file of gravity
     :param plot: whether to plot or not at the end of the step detection process
     """
-    linear_acc_df = pd.read_csv(acc_file_path)
-    gravity_df = pd.read_csv(gravity_file_path)
+    # Sorting --- ---
+    linear_acc_df.sort_values(by=['timestamp'], inplace = True)
+    gravity_df.sort_values(by=['timestamp'], inplace=True)
+    # --- --- --- ---
     linear_acc_df.rename(columns={"double_values_0": "x", "double_values_1": "y", "double_values_2": "z"}, inplace=True)
     gravity_df.rename(columns={"double_values_0": "x", "double_values_1": "y", "double_values_2": "z"}, inplace=True)
     # Sync here ---
@@ -36,8 +37,9 @@ def main_executor(acc_file_path, gravity_file_path, plot=False):
     linear_acc_vector = synced_df[["xacceleration","yacceleration","zacceleration"]].to_numpy()
 
     gravity_vector = synced_df[["xgravity","ygravity","zgravity"]].to_numpy()
-    print(linear_acc_vector.shape, gravity_vector.shape)
-    acc_gravity_to_steps(linear_acc_vector, gravity_vector)
+    step_count = acc_gravity_to_steps(linear_acc_vector, gravity_vector)
+
+    #step_counts_summary = "10:00-11:00: 500 steps\n11:00-12:00: 600 steps\n..."
 
 
 def acc_gravity_to_steps(linar_acceleration, gravity):
@@ -52,9 +54,9 @@ def acc_gravity_to_steps(linar_acceleration, gravity):
     gravity = normalize_v(gravity)
     # Let's assume axis direction is alright...
     vertical_movement = np.einsum('ij,ij->i', filtered_acceleration, gravity)
-    print(footpath_detector(vertical_movement))
+    _, step_count = footpath_detector(vertical_movement)
 
-    #return()
+    return(step_count)
 
 def normalize_v(vector):
     """
@@ -142,10 +144,18 @@ def footpath_detector(filtered_z, step_acc=2, window_size=210, timeout=333):
 # Sync ------------
 
 def sync_df(df1, df2):
-    # Assume ascent order
+    """
+    Sync of linear acceleration and gravity datasets by pairing timestamps no more distant than 10 ms.
+    Is not very smart, you may want to use something more scientific
+    :param df1: first dataframe to align
+    :param df2: second dataframe to align
+    :return: new dataframe with aligned rows (each row 
+    """
+    # Assume ascent order by timestamp
     index1 = 0
     index2 = 0
     pairs = []
+    df2_len = len(df2)
     for index, row in df1.iterrows():
         cur_pair = (index1, -1)
         cur_timestamp = row["timestamp"]
@@ -155,7 +165,7 @@ def sync_df(df1, df2):
             cur_pair = (index1, index2)
             index2 += 1
         else:
-            for i in range(index2, min(index2 + 1001, len(df2)-1)):
+            for i in range(index2, min(index2 + 1001, df2_len-1)):
                 row2 = df2.iloc[i]
                 timestamp_difference = cur_timestamp - row2["timestamp"]
                 if timestamp_difference <= 10 and timestamp_difference >= -10:
@@ -171,6 +181,7 @@ def sync_df(df1, df2):
 
     merged_rows = []
     for pair in pairs:
+        # Drop unmatched timestamps
         if pair[1] != -1:
             row1 = df1.iloc[[pair[0]]].reset_index(drop=True)  # note double brackets to keep DataFrame shape
             row2 = df2.iloc[[pair[1]]].reset_index(drop=True)
@@ -178,7 +189,6 @@ def sync_df(df1, df2):
             merged_rows.append(merged)
 
     newdf = pd.concat(merged_rows, axis=0)
-
     return (newdf)
 
 
