@@ -8,8 +8,22 @@ from pytz import timezone, utc
 
 
 DEVICE_IDS = ['ca904fe8-f242-4306-85dc-0f1182443365', '2b2edf90-f71c-4f4d-9804-c91c71e80f84', '669164ce-b5a6-414d-9a97-f1d0e6c1ebc2']
-TABLES = ['accelerometer', 'applications_foreground', 'applications_notifications', 'aware_log', 'aware_studies', 'barometer', 'battery', 'bluetooth', 'esms', 'gravity', 'gsm', 'gyroscope', 'installations', 'keyboard', 'light', 'linear_accelerometer', 'locations', 'magnetometer', 'network', 'notes', 'proximity', 'rotation', 'screen', 'screentext', 'sensor_accelerometer', 'sensor_barometer', 'sensor_bluetooth', 'sensor_gravity', 'sensor_gyroscope', 'sensor_light', 'sensor_linear_accelerometer', 'sensor_magnetometer', 'sensor_proximity', 'sensor_rotation', 'sensor_wifi', 'telephony', 'timezone', 'touch', 'wifi']
-
+TABLES = [
+    'accelerometer',
+    'applications_foreground',
+    'applications_notifications',
+    'battery',
+    'esms',
+    'gravity',
+    'gyroscope',
+    'linear_accelerometer',
+    'locations',
+    'screen',
+    'telephony',
+    'touch',
+    'aware_log',           # optional
+    'aware_studies'        # optional
+]
 
 def run_aware_narrator_cfg(dates):
 
@@ -94,6 +108,6 @@ def run_aware_narrator_cfg(dates):
 # Example usage:
 if __name__ == "__main__":
     # Define the dates for which you want to run the narrator
-    dates = ['2025-06-10'] 
+    dates = ['2025-06-12'] 
     # Run the Aware Narrator configuration for the specified dates
     run_aware_narrator_cfg(dates)

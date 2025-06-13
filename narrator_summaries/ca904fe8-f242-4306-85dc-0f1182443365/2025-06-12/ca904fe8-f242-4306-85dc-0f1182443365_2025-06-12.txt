@@ -1,0 +1,38 @@
+Screen usage sessions by hour:
+- 10:00-11:00: 2 sessions, total screen time ~0 min
+  - Session 10:13:02 to 10:13:39 (37 sec)
+  - Session 10:15:36 to 10:15:51 (15 sec)
+- 11:00-12:00: 2 sessions, total screen time ~0 min
+  - Session 11:13:13 to 11:13:16 (3 sec)
+  - Session 11:13:57 to 11:14:36 (39 sec)
+- 12:00-13:00: 3 sessions, total screen time ~1 min
+  - Session 12:49:39 to 12:50:21 (42 sec)
+  - Session 12:50:22 to 12:50:24 (2 sec)
+  - Session 12:56:22 to 12:57:09 (47 sec)
+- 13:00-14:00: 4 sessions, total screen time ~0 min
+  - Session 13:09:56 to 13:09:57 (1 sec)
+  - Session 13:28:03 to 13:28:23 (20 sec)
+  - Session 13:29:56 to 13:30:07 (11 sec)
+  - Session 13:57:06 to 13:57:17 (11 sec)
+- 14:00-15:00: 6 sessions, total screen time ~1 min
+  - Session 14:03:28 to 14:04:03 (35 sec)
+  - Session 14:04:03 to 14:04:11 (8 sec)
+  - Session 14:04:19 to 14:04:21 (2 sec)
+  - Session 14:04:40 to 14:04:41 (1 sec)
+  - Session 14:19:55 to 14:20:34 (39 sec)
+  - Session 14:23:00 to 14:23:10 (10 sec)
+
+App usage by hour (app opens):
+- 10:00-11:00: AWARE: 3x
+- 11:00-12:00: AWARE: 6x, Google Play services: 1x
+- 12:00-13:00: AWARE: 4x, Gboard: 1x, Pixel Launcher: 4x
+- 13:00-14:00: AWARE: 3x
+- 14:00-15:00: AWARE: 4x, Gboard: 1x
+
+Screen ON gaps by hour:
+- 10:00-11:00: min gap 154s, max gap 154s, avg gap 154.0s
+- 11:00-12:00: min gap 44s, max gap 3457s, avg gap 1750.5s
+- 12:00-13:00: min gap 43s, max gap 5742s, avg gap 2048.3s
+- 13:00-14:00: min gap 113s, max gap 1630s, avg gap 911.0s
+- 14:00-15:00: min gap 16s, max gap 915s, avg gap 259.0s
+- 15:00-16:00: min gap 2231s, max gap 2231s, avg gap 2231.0s
