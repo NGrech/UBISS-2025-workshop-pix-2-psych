@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from datetime import datetime
 COLNAMES = ["double_values_0", "double_values_1", "double_values_2"]
 
 '''
@@ -27,19 +27,41 @@ def step_executor(linear_acc_df, gravity_df, plot=False):
     # Sorting --- ---
     linear_acc_df.sort_values(by=['timestamp'], inplace = True)
     gravity_df.sort_values(by=['timestamp'], inplace=True)
+    # Reset indexes
+    linear_acc_df.reset_index(inplace = True)
+    gravity_df.reset_index(inplace=True)
     # --- --- --- ---
     linear_acc_df.rename(columns={"double_values_0": "x", "double_values_1": "y", "double_values_2": "z"}, inplace=True)
     gravity_df.rename(columns={"double_values_0": "x", "double_values_1": "y", "double_values_2": "z"}, inplace=True)
     # Sync here ---
     # for each record take one that is close in time stamp by less than 10 milliseconds (still not good but whatever)
     synced_df = sync_df(linear_acc_df, gravity_df)
-
+    #Convert to vector
     linear_acc_vector = synced_df[["xacceleration","yacceleration","zacceleration"]].to_numpy()
-
     gravity_vector = synced_df[["xgravity","ygravity","zgravity"]].to_numpy()
-    step_count = acc_gravity_to_steps(linear_acc_vector, gravity_vector)
 
+    #Count steps
+    print("counting steps..")
+    step_list, step_count = acc_gravity_to_steps(linear_acc_vector, gravity_vector)
+
+    #Step list is in form [ xxx 1 000 1 xxx], where 1s border the steps
     #step_counts_summary = "10:00-11:00: 500 steps\n11:00-12:00: 600 steps\n..."
+    data = dict()
+    for index in range(0, len(step_list)):
+        if step_list[index] == 1:
+            cur_timestamp = linear_acc_vector.iloc[index]["timestamp"]
+            data[cur_timestamp] = data.get(cur_timestamp, 0) + 1
+
+    hourly_data = dict()
+    for ts_ms, steps in data.items():
+        dt = datetime.fromtimestamp(ts_ms / 1000)  # convert ms to seconds
+        hour_key = dt.replace(minute=0, second=0, microsecond=0)  # round down to the hour
+        hourly_data[hour_key] = hourly_data.get(hour_key, 0) + steps
+
+    result = sorted(hourly_data.items())
+
+    return result
+
 
 
 def acc_gravity_to_steps(linar_acceleration, gravity):
@@ -53,10 +75,11 @@ def acc_gravity_to_steps(linar_acceleration, gravity):
     # Normalize gravity
     gravity = normalize_v(gravity)
     # Let's assume axis direction is alright...
+    # Glorified dot product
     vertical_movement = np.einsum('ij,ij->i', filtered_acceleration, gravity)
-    _, step_count = footpath_detector(vertical_movement)
+    step_list, step_count = footpath_detector(vertical_movement)
 
-    return(step_count)
+    return(step_list, step_count)
 
 def normalize_v(vector):
     """
@@ -99,11 +122,14 @@ def highpass(dt, RC, x):
 def footpath_detector(filtered_z, step_acc=2, window_size=210, timeout=333):
     """
     Step detector implemented as "FootPath: Accurate Map-based Indoor Navigation Using Smartphones" paper
+    returned step_list is a vector like  [  0 0 0 1 0 0 0 1 3 3 3 0 0 1 0 0 1 3 3 3 0 ]
+    where 1s enclose a step, and 3 indicate timeout time.
+    Each value is a point in time of the given vertical acceleration dataframe.
     :param filtered_z: A vertical acceleration component that is reasonably smoothed
     :param step_acc: acceleration as in m/s^2 that will serve as threshold to recognize steps
     :param window_size: window in which acceleration is analyzed to see if it drops below step_acc
     :param timeout: amount of time to wait before detecting a step again
-    :return:
+    :return: step count, step list as a vector
     """
     len_z = len(filtered_z)
 
@@ -124,7 +150,6 @@ def footpath_detector(filtered_z, step_acc=2, window_size=210, timeout=333):
             drop += window_list[x] - window_list[x + 1]  # window_list[x] - window_list[x + 1]
         zorder = 3
         if drop >= step_acc:
-
             # Step mark
             step_list[i] = 1
             step_list[i + window_size] = 1

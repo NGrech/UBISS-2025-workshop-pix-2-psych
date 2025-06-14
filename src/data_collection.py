@@ -52,8 +52,7 @@ if __name__ == "__main__":
     password = config['MYSQL_PASSWORD']
     host = config['MYSQL_HOST']
     database = config['MYSQL_DATABASE']
-
-    tables = ['esms'] 
+    tables = ['esm']
     output_dir = "./csv_exports" 
 
     os.makedirs(output_dir, exist_ok=True)

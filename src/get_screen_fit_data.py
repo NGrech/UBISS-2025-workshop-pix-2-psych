@@ -63,5 +63,3 @@ def get_refined_data(device_id, start_ts = None, end_ts = None):
 
     steps_string = step_executor(data_aggregator(acceleration_path, device_id), data_aggregator(gravity_path, device_id))
     app_usage_string = screen_executor(data_aggregator(apps_path, device_id), data_aggregator(screen_path, device_id))
-
-
